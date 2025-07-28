@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walaa Hair Studio - Header, Hero & Meet Walaa</title>
+    
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* pull in the font first thing */
+        @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-rose: #d4a574;
+            --primary-copper: #b8935f;
+            --primary-gold: #e6c9a3;
+            --text-dark: #2a2a2a;
+            --text-light: #6b6b6b;
+            --bg-light: #faf8f6;
+            --bg-cream: #f5f0eb;
+            --white: #ffffff;
+            --hero-bg: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--bg-light);
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--hero-bg);
+        }
+
+        .header.at-top {
+            background: var(--hero-bg);
+            box-shadow: none;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header.scrolled .header-container {
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo-icon {
+            max-height: 90px;
+            width: auto;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            object-fit: contain;
+        }
+
+        .header.scrolled .logo-icon {
+            max-height: 60px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease;
+            color: var(--white);
+        }
+
+        .header.scrolled .nav-link {
+            color: var(--text-dark);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .header.scrolled .nav-link::after {
+            background: var(--primary-rose);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .header.scrolled .nav-link:hover {
+            color: var(--primary-rose);
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .instagram-link {
+            color: var(--text-dark);
+        }
+
+        .instagram-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .header.scrolled .instagram-link:hover {
+            color: var(--primary-rose);
+        }
+
+        .instagram-icon {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-link:hover .instagram-icon {
+            transform: scale(1.1);
+        }
+
+        .book-now-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 28px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .book-now-btn {
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+            border: none;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .header.scrolled .book-now-btn:hover {
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .mobile-menu-btn span {
+            background: var(--text-dark);
+        }
+
+        /* CTA Banner Section - Updated with Feminine Touch */
+        .cta-banner {
+            position: relative;
+            padding: 60px 0;
+            padding-top: 120px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            min-height: calc(100vh - 50px);
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 165, 116, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Softer decorative element */
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            width: 250px;
+            height: 250px;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            animation: gentle-float 25s ease-in-out infinite;
+        }
+
+        @keyframes gentle-float {
+            0%, 100% { 
+                transform: translateY(-50%) scale(1); 
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translateY(-50%) scale(1.03); 
+                opacity: 0.5;
+            }
+        }
+
+        .cta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            min-height: calc(100vh - 180px);
+        }
+
+        .cta-content {
+            flex: 1.5;
+            color: var(--white);
+        }
+
+        /* Softer, more elegant badge */
+        .cta-badge {
+            display: inline-block;
+            background: rgba(212, 165, 116, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 165, 116, 0.25);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* More feminine, gentle title */
+        .cta-title {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 52px;
+            line-height: 1.3;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .cta-title span {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-rose) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: italic;
+        }
+
+        /* Softer, more inviting description */
+        .cta-description {
+            font-size: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 300;
+            margin-bottom: 45px;
+            max-width: 580px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        /* More delicate stats presentation */
+        .cta-stats {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 45px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--primary-gold);
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.8px;
+            text-transform: capitalize;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+        }
+
+        /* Softer, more inviting button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+            color: var(--white);
+            text-decoration: none;
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.25);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.35);
+        }
+
+        /* Image Side */
+        .cta-image {
+            flex: 0 0 350px;
+            position: relative;
+            animation: fadeIn 1s ease-out 0.5s both;
+            display: flex;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 600px;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+        }
+
+        .image-frame {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            bottom: -20px;
+            left: -20px;
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        /* Meet Walaa Section Styles */
+        .meet-walaa-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #faf8f6 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meet-walaa-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .meet-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .meet-content {
+            flex: 1.2;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .meet-header {
+            margin-bottom: 40px;
+        }
+
+        .meet-title {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 48px;
+            color: #2a2a2a;
+            font-weight: 400;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cursive-name {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+            display: inline-block;
+            margin-bottom: -12px;
+            vertical-align: middle;
+        }
+
+        .meet-story {
+            margin-bottom: 40px;
+        }
+
+        .story-intro {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #2a2a2a;
+            font-weight: 300;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .meet-story p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #6b6b6b;
+            margin-bottom: 20px;
+        }
+
+        .meet-cta-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .meet-cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .meet-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .meet-secondary-link {
+            color: var(--primary-copper);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .meet-secondary-link:hover {
+            color: var(--primary-rose);
+        }
+
+        /* Image Side */
+        .meet-image {
+            flex: 0 0 400px;
+            position: relative;
+            animation: fadeInRight 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-frame-wrapper {
+            position: relative;
+        }
+
+        .decorative-element {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        .walaa-portrait {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px 20px 200px 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-accent {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            border-radius: 20px 20px 200px 20px;
+            z-index: 1;
+        }
+
+        .floating-testimonial {
+            position: absolute;
+            bottom: 50px;
+            left: -60px;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+            z-index: 3;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-testimonial p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #2a2a2a;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .floating-testimonial span {
+            font-size: 12px;
+            color: #b8935f;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .cta-container {
+                flex-direction: column;
+                gap: 50px;
+                text-align: center;
+                min-height: auto;
+            }
+
+            .cta-content {
+                order: 2;
+            }
+
+            .cta-image {
+                order: 1;
+                flex: 1;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .image-wrapper {
+                height: 500px;
+            }
+
+            .cta-title {
+                font-size: 36px;
+            }
+
+            .cta-description {
+                margin: 0 auto 40px;
+            }
+
+            .cta-stats {
+                justify-content: center;
+            }
+
+            .meet-container {
+                flex-direction: column;
+                gap: 60px;
+            }
+            
+            .meet-image {
+                flex: 1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .floating-testimonial {
+                left: 20px;
+            }
+            
+            .meet-title {
+                font-size: 40px;
+            }
+            
+            .cursive-name {
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .book-now-btn {
+                display: none;
+            }
+
+            .cta-banner {
+                padding: 50px 0;
+                padding-top: 100px;
+            }
+
+            .image-wrapper {
+                height: 400px;
+            }
+
+            .cta-image {
+                max-width: 300px;
+            }
+
+            .meet-walaa-section {
+                padding: 80px 0;
+            }
+            
+            .meet-container {
+                padding: 0 20px;
+            }
+            
+            .meet-title {
+                font-size: 32px;
+                flex-wrap: wrap;
+            }
+            
+            .cursive-name {
+                height: 38px;
+            }
+            
+            .walaa-portrait {
+                height: 500px;
+            }
+            
+            .floating-testimonial {
+                position: relative;
+                left: 0;
+                bottom: auto;
+                margin-top: 30px;
+                max-width: 100%;
+            }
+
+            .meet-cta-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-title {
+                font-size: 28px;
+            }
+
+            .cta-description {
+                font-size: 16px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .cta-stats {
+                gap: 30px;
+            }
+
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 12px;
+            }
+
+            .image-wrapper {
+                max-height: 350px;
+            }
+
+            .cta-image {
+                max-width: 200px;
+            }
+
+            .story-intro {
+                font-size: 18px;
+            }
+            
+            .meet-story p {
+                font-size: 15px;
+            }
+            
+            .walaa-portrait {
+                height: 400px;
+                border-radius: 20px;
+            }
+            
+            .image-accent {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header at-top" id="header">
+        <div class="header-container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <img src="https://i.imgur.com/3wjcHGC.png" alt="Walaa Hair Studio" class="logo-icon">
+            </a>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li>
+                        <a href="https://instagram.com/walaahairstudio" target="_blank" class="instagram-link">
+                            <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            Instagram
+                        </a>
+                    </li>
+                    <li><a href="#book" class="book-now-btn">Book Now</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- CTA Banner Section with Feminine Copy -->
+    <section class="cta-banner" id="home">
+        <div class="cta-container">
+            <div class="cta-content">
+                <span class="cta-badge">Trusted by San Antonio Women</span>
+                <h2 class="cta-title">
+                    Where Beautiful Hair and <span>Beautiful Moments</span> Begin
+                </h2>
+                <p class="cta-description">
+                    Step into a world where your hair dreams come true. Walaa listens, understands, and creates the perfect look that makes you feel like the best version of yourself.
+                </p>
+                
+                <div class="cta-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3000+</span>
+                        <span class="stat-label">Happy Hearts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5★</span>
+                        <span class="stat-label">Glowing Reviews</span>
+                    </div>
+                </div>
+                
+                <a href="#services" class="cta-button">
+                    Begin Your Journey
+                </a>
+            </div>
+            
+            <div class="cta-image">
+                <div class="image-wrapper">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="https://res.cloudinary.com/dzwotlelh/video/upload/v1753551002/New_hair_by_walaamahal___%EF%B8%8F_%EF%B8%8F_%D9%87%D8%A7%D9%8A%D9%84%D8%A7%D9%8A%D8%AA_%D8%B5%D8%A7%D9%84%D9%88%D9%86_%D8%B5%D8%A8%D8%BA_%D8%B3%D8%AA%D8%A7%D9%8A%D9%84_highlight_newstyle_salon_foryou_b2fulw.mp4" type="video/mp4">
+                        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&h=700&fit=crop" alt="Professional hair styling at Walaa Hair Studio">
+                    </video>
+                    <div class="image-frame"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Walaa Section -->
+    <section class="meet-walaa-section">
+        <div class="meet-container">
+            <div class="meet-content">
+                <div class="meet-header">
+                    <h2 class="meet-title">
+                        Meet <img src="https://i.imgur.com/1xDWqLe.png" alt="Walaa" class="cursive-name">
+                    </h2>
+                </div>
+                
+                <div class="meet-story">
+                    <p class="story-intro">
+                        With over 10 years of experience and a unique background in social psychology, Walaa brings both heart and expertise to every appointment.
+                    </p>
+                    
+                    <p>
+                        Originally trained as a social worker, Walaa discovered her true calling after moving to the United States. She realized that helping women feel confident through beautiful hair was another powerful way to make a positive impact. This revelation led her to pursue extensive training in hairstyling, taking classes across the USA and internationally to perfect her craft.
+                    </p>
+                    
+                    <p>
+                        Her dedication to continuous learning means she's always bringing fresh techniques and the latest trends to her clients. But what truly sets Walaa apart is her understanding of people—she doesn't just style hair, she creates an experience where every client feels heard, cared for, and leaves feeling their absolute best.
+                    </p>
+                </div>
+                
+                <div class="meet-cta-wrapper">
+                    <a href="#book" class="meet-cta-button">
+                        Book Your Consultation
+                    </a>
+                    <a href="#portfolio" class="meet-secondary-link">View Portfolio →</a>
+                </div>
+            </div>
+            
+            <div class="meet-image">
+                <div class="image-frame-wrapper">
+                    <div class="decorative-element"></div>
+                    <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?w=600&h=800&fit=crop" alt="Walaa - Master Hair Stylist" class="walaa-portrait">
+                    <div class="image-accent"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+        
+        function handleScroll() {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+                header.classList.remove('at-top');
+            } else {
+                header.classList.remove('scrolled');
+                header.classList.add('at-top');
+            }
+            
+            lastScroll = currentScroll;
+        }
+
+        let ticking = false;
+        function scrollHandler() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', scrollHandler, { passive: true });
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            handleScroll();
+        });
+        
+        window.addEventListener('resize', handleScroll);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

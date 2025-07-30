@@ -37,12 +37,19 @@
             --hero-bg: #2a2a2a;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
             background-color: var(--bg-light);
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
         }
 
         /* Header Styles */
@@ -699,91 +706,149 @@
 
         /* Announcement Section Styles */
         .announcement-section {
-            padding: 0 0 20px 0;
-            background-color: #faf6f0;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
             width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .announcement-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 30% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .announcement-wrapper {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
         }
 
         .announcement-banner {
             width: 100%;
-            background-color: transparent;
-            border-radius: 0;
-            padding: 25px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
             display: flex;
             align-items: center;
-            gap: 40px;
-            box-shadow: none;
+            gap: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             position: relative;
-            min-height: 120px;
-            max-height: 140px;
+            box-sizing: border-box;
+            overflow: hidden;
+            border: 1px solid rgba(212, 165, 116, 0.2);
         }
 
+        .salon-image {
+            flex: 0 0 300px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
 
-
-        .salon-logo {
-            flex-shrink: 0;
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
+        .salon-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .divider {
-            flex-shrink: 0;
-            width: 1px;
-            height: 60px;
-            background-color: #e8dfd1;
+            display: none;
         }
 
         .announcement-text {
+            flex: 1;
             display: flex;
-            align-items: center;
-            gap: 35px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 20px;
+            color: white;
         }
 
         .announcement-text .title {
             font-family: 'Tenor Sans', serif;
-            font-size: 1.5rem;
-            color: #2a2a2a;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             font-weight: 400;
-            flex-shrink: 0;
+            margin: 0;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-rose) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .announcement-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .details {
             display: flex;
             align-items: center;
             gap: 25px;
-            color: #6b6b6b;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 1rem;
             font-weight: 300;
             letter-spacing: 0.5px;
         }
 
         .detail-item {
-            flex-shrink: 0;
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
         .detail-separator {
-            color: #d4a574;
+            color: var(--primary-gold);
             font-weight: 400;
         }
 
         .opening-date {
-            color: #d4a574;
-            font-weight: 400;
+            color: var(--primary-gold);
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .announcement-cta {
+            margin-top: 10px;
+        }
+
+        .announcement-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .announcement-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
         }
 
         /* Price List Section Styles */
@@ -1285,19 +1350,29 @@
             }
 
             .announcement-banner {
-                padding: 25px 30px;
+                flex-direction: column;
+                padding: 40px 30px;
                 gap: 30px;
-                min-height: 120px;
-                max-height: 140px;
+                text-align: center;
             }
 
-            .salon-logo {
-                width: 60px;
-                height: 60px;
+            .salon-image {
+                flex: 1;
+                width: 100%;
+                max-width: 100%;
+                height: 180px;
+            }
+
+            .announcement-text {
+                align-items: center;
             }
 
             .announcement-text .title {
-                font-size: 1.3rem;
+                font-size: 2rem;
+            }
+
+            .announcement-subtitle {
+                font-size: 1.1rem;
             }
 
             .details {
@@ -1374,10 +1449,11 @@
             }
 
             .announcement-banner {
+                flex-wrap: wrap;
                 padding: 20px 25px;
                 gap: 25px;
                 min-height: 100px;
-                max-height: 120px;
+                max-height: none;
             }
 
             .salon-logo {
@@ -1499,30 +1575,41 @@
                 padding: 0 0 15px 0;
             }
 
+            .announcement-section {
+                padding: 30px 0;
+            }
+
             .announcement-banner {
-                padding: 15px 20px;
+                padding: 25px 15px;
                 gap: 20px;
-                min-height: 90px;
-                max-height: 110px;
             }
 
-            .salon-logo {
-                width: 40px;
-                height: 40px;
-            }
-
-            .divider {
-                height: 35px;
+            .salon-image {
+                height: 140px;
             }
 
             .announcement-text .title {
-                font-size: 0.95rem;
-                letter-spacing: 1.2px;
+                font-size: 1.5rem;
+                letter-spacing: 1.5px;
+            }
+
+            .announcement-subtitle {
+                font-size: 0.9rem;
             }
 
             .details {
-                font-size: 0.75rem;
-                gap: 15px;
+                flex-direction: column;
+                font-size: 0.8rem;
+                gap: 8px;
+            }
+
+            .detail-separator {
+                display: none;
+            }
+
+            .announcement-button {
+                padding: 14px 28px;
+                font-size: 12px;
             }
 
             .price-category {
@@ -1748,19 +1835,24 @@
     <section class="announcement-section">
         <div class="announcement-wrapper">
             <div class="announcement-banner">
-                <img src="assets/new.png" alt="Walaa Hair Studio" class="salon-logo">
-                
-                <div class="divider"></div>
+                <div class="salon-image">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop&q=80" alt="Walaa Hair Studio Interior">
+                </div>
                 
                 <div class="announcement-text">
                     <h2 class="title">Grand Opening</h2>
+                    <p class="announcement-subtitle">Experience luxury hair care in the heart of San Antonio</p>
                     
                     <div class="details">
-                        <span class="detail-item">Luxury Hair Salon</span>
+                        <span class="detail-item">Premium Hair Services</span>
                         <span class="detail-separator">•</span>
-                        <span class="detail-item">San Antonio, Texas</span>
+                        <span class="detail-item">Expert Stylists</span>
                         <span class="detail-separator">•</span>
-                        <span class="detail-item opening-date">Open Now</span>
+                        <span class="detail-item opening-date">Now Open</span>
+                    </div>
+                    
+                    <div class="announcement-cta">
+                        <a href="#book" class="announcement-button">Book Your Visit</a>
                     </div>
                 </div>
             </div>
@@ -2093,29 +2185,10 @@
             });
         });
 
-        // Instagram fade in animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        entry.target.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
+        // Instagram posts - no animation
         document.querySelectorAll('.instagram-post').forEach(post => {
-            observer.observe(post);
+            post.style.opacity = '1';
+            post.style.transform = 'translateY(0)';
         });
     </script>
 </body>

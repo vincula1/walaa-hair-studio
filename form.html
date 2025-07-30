@@ -38,11 +38,19 @@
             --success: #27ae60;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
             background-color: var(--bg-light);
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
             min-height: 100vh;
             padding-top: 100px;
         }
@@ -186,7 +194,7 @@
             transform: scale(1.1);
         }
 
-        .header-book-now-btn {
+        .book-now-btn {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -200,24 +208,27 @@
             text-transform: uppercase;
             border-radius: 30px;
             transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
         }
 
-        .header.scrolled .header-book-now-btn {
+        .header.scrolled .book-now-btn {
             background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
             border: none;
             box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
         }
 
-        .header-book-now-btn:hover {
+        .book-now-btn:hover {
             transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.3);
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
         }
 
-        .header.scrolled .header-book-now-btn:hover {
+        .header.scrolled .book-now-btn:hover {
             box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
         }
 
+        /* Mobile Menu Styles */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
@@ -226,6 +237,8 @@
             border: none;
             cursor: pointer;
             padding: 8px;
+            position: relative;
+            z-index: 1002;
         }
 
         .mobile-menu-btn span {
@@ -237,6 +250,113 @@
 
         .header.scrolled .mobile-menu-btn span {
             background: var(--text-dark);
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .mobile-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-list li {
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-list li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(4) { transition-delay: 0.4s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(5) { transition-delay: 0.5s; }
+
+        .mobile-menu-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .mobile-menu-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .mobile-menu-link.active {
+            color: var(--primary-gold);
+        }
+
+        .mobile-book-btn {
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .mobile-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
         }
 
         /* Main booking wrapper with adjusted positioning */
@@ -859,15 +979,17 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
             align-items: center;
+            gap: 40px;
         }
 
         .footer-left {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            justify-self: start;
         }
 
         .footer-logo {
@@ -914,9 +1036,9 @@
             flex-direction: column;
             gap: 10px;
             text-align: center;
-            flex: 1;
             align-items: center;
             justify-content: center;
+            justify-self: center;
         }
 
         .footer-links {
@@ -959,6 +1081,8 @@
         .footer-right {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
+            justify-self: end;
         }
 
         .footer-logo-img {
@@ -992,7 +1116,7 @@
                 display: flex;
             }
 
-            .header-book-now-btn {
+            .book-now-btn {
                 display: none;
             }
 
@@ -1038,17 +1162,14 @@
             }
 
             .footer-container {
-                flex-direction: column;
-                gap: 40px;
-                padding: 0 20px;
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .footer-left {
-                align-items: center;
-            }
-
+            .footer-left,
+            .footer-center,
             .footer-right {
-                order: -1;
+                justify-self: center;
             }
 
             .footer-logo-img {
@@ -1103,11 +1224,11 @@
             <!-- Navigation -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="service.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                     <li>
-                        <a href="https://instagram.com/walaahairstudio" target="_blank" class="instagram-link">
+                        <a href="https://instagram.com/walaamahal" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -1116,18 +1237,35 @@
                             Instagram
                         </a>
                     </li>
-                    <li><a href="#book" class="header-book-now-btn">Book Now</a></li>
+                    <li><a href="form.html" class="book-now-btn">Book Now</a></li>
                 </ul>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" aria-label="Menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-content">
+            <ul class="mobile-menu-list">
+                <li><a href="index.html" class="mobile-menu-link">Home</a></li>
+                <li><a href="service.html" class="mobile-menu-link">Services</a></li>
+                <li><a href="portfolio.html" class="mobile-menu-link">Portfolio</a></li>
+                <li>
+                    <a href="https://instagram.com/walaamahal" target="_blank" class="mobile-menu-link">
+                        Instagram
+                    </a>
+                </li>
+                <li><a href="form.html" class="mobile-book-btn">Book Now</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Main Booking Content -->
     <main class="booking-main">
@@ -1422,10 +1560,10 @@
             
             <div class="footer-center">
                 <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#book">Book Now</a>
+                    <a href="index.html">Home</a>
+                    <a href="service.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="form.html">Book Now</a>
                 </div>
                 <div class="footer-address">
                     11106 Huebner Rd #310, San Antonio, TX 78230
@@ -1436,7 +1574,7 @@
             </div>
             
             <div class="footer-right">
-                <img src="https://i.imgur.com/3wjcHGC.png" alt="Walaa Hair Studio Logo" class="footer-logo-img">
+                <img src="assets/logo.png" alt="Walaa Hair Studio Logo" class="footer-logo-img">
             </div>
         </div>
     </footer>
@@ -1815,7 +1953,7 @@
             document.getElementById('summary-time').textContent = bookingState.selectedTime;
             document.getElementById('summary-client').textContent = 
                 `${bookingState.clientInfo.firstName} ${bookingState.clientInfo.lastName}`;
-            document.getElementById('summary-total').textContent = `$${bookingState.selectedService.price}`;
+            document.getElementById('summary-total').textContent = `${bookingState.selectedService.price}`;
         }
 
         async function submitBooking() {
@@ -1892,6 +2030,28 @@
             lastScroll = currentScroll;
         }
 
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const body = document.body;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-book-btn');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        // Combined scroll handler
         let ticking = false;
         function scrollHandler() {
             if (!ticking) {

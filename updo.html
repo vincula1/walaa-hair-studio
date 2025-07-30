@@ -42,6 +42,89 @@
             background-color: var(--bg-light);
         }
 
+        /* Entrance Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Animation Classes */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .animate-fade-in-down {
+            animation: fadeInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .animate-slide-in-left {
+            animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Staggered Animations */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+
         /* Header Styles */
         .header {
             position: fixed;
@@ -83,6 +166,8 @@
             align-items: center;
             text-decoration: none;
             transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.2s forwards;
         }
 
         .logo-icon {
@@ -103,6 +188,17 @@
             gap: 45px;
             align-items: center;
         }
+
+        .nav-menu li {
+            opacity: 0;
+            animation: fadeInDown 0.6s ease-out forwards;
+        }
+
+        .nav-menu li:nth-child(1) { animation-delay: 0.3s; }
+        .nav-menu li:nth-child(2) { animation-delay: 0.4s; }
+        .nav-menu li:nth-child(3) { animation-delay: 0.5s; }
+        .nav-menu li:nth-child(4) { animation-delay: 0.6s; }
+        .nav-menu li:nth-child(5) { animation-delay: 0.7s; }
 
         .nav-link {
             text-decoration: none;
@@ -207,8 +303,8 @@
             text-transform: uppercase;
             border-radius: 30px;
             transition: all 0.3s ease;
-            white-space: nowrap; /* Prevents text from wrapping */
-            min-width: 120px; /* Ensures minimum width for the button */
+            white-space: nowrap;
+            min-width: 120px;
         }
 
         .header.scrolled .book-now-btn {
@@ -394,6 +490,7 @@
             transition: all 0.3s ease;
             position: relative;
             z-index: 1;
+            opacity: 0;
         }
 
         .back-link:hover {
@@ -416,6 +513,7 @@
             text-transform: uppercase;
             position: relative;
             z-index: 1;
+            opacity: 0;
         }
 
         .service-price {
@@ -425,6 +523,7 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 1;
+            opacity: 0;
         }
 
         /* Service Content Section */
@@ -442,6 +541,7 @@
         .service-description {
             text-align: center;
             margin-bottom: 60px;
+            opacity: 0;
         }
 
         .description-text {
@@ -473,6 +573,19 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-image {
@@ -480,6 +593,11 @@
             height: 450px;
             object-fit: cover;
             display: block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
         }
 
         /* CTA Section */
@@ -494,12 +612,14 @@
             font-size: 36px;
             color: var(--text-dark);
             margin-bottom: 20px;
+            opacity: 0;
         }
 
         .cta-text {
             font-size: 18px;
             color: var(--text-light);
             margin-bottom: 30px;
+            opacity: 0;
         }
 
         .cta-button {
@@ -515,6 +635,7 @@
             border-radius: 30px;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+            opacity: 0;
         }
 
         .cta-button:hover {
@@ -795,16 +916,16 @@
     <header class="header at-top" id="header">
         <div class="header-container">
             <!-- Logo -->
-            <a href="/" class="logo">
+            <a href="/index.html" class="logo">
                 <img src="assets/logo.png" alt="Walaa Hair Studio" class="logo-icon">
             </a>
 
             <!-- Navigation -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/#services" class="nav-link">Services</a></li>
-                    <li><a href="/portfolio" class="nav-link active">Portfolio</a></li>
+                    <li><a href="/index.html" class="nav-link">Home</a></li>
+                    <li><a href="/service.html" class="nav-link">Services</a></li>
+                    <li><a href="/portfolio.html" class="nav-link active">Portfolio</a></li>
                     <li>
                         <a href="https://instagram.com/walaahairstudio" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -815,7 +936,7 @@
                             Instagram
                         </a>
                     </li>
-                    <li><a href="#book" class="book-now-btn">Book Now</a></li>
+                    <li><a href="/form.html" class="book-now-btn">Book Now</a></li>
                 </ul>
             </nav>
 
@@ -832,15 +953,15 @@
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu-content">
             <ul class="mobile-menu-list">
-                <li><a href="/" class="mobile-menu-link">Home</a></li>
-                <li><a href="/#services" class="mobile-menu-link">Services</a></li>
-                <li><a href="/portfolio" class="mobile-menu-link active">Portfolio</a></li>
+                <li><a href="/index.html" class="mobile-menu-link">Home</a></li>
+                <li><a href="/service.html" class="mobile-menu-link">Services</a></li>
+                <li><a href="/portfolio.html" class="mobile-menu-link active">Portfolio</a></li>
                 <li>
                     <a href="https://instagram.com/walaahairstudio" target="_blank" class="mobile-menu-link">
                         Instagram
                     </a>
                 </li>
-                <li><a href="#book" class="mobile-book-btn">Book Now</a></li>
+                <li><a href="/form.html" class="mobile-book-btn">Book Now</a></li>
             </ul>
         </div>
     </div>
@@ -848,21 +969,21 @@
     <!-- Service Hero Section -->
     <section class="service-hero">
         <div class="content-container">
-            <a href="/portfolio" class="back-link">
+            <a href="/portfolio.html" class="back-link animate-slide-in-left">
                 <svg class="back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M19 12H5M5 12l7 7m-7-7l7-7"/>
                 </svg>
                 Back to Portfolio
             </a>
-            <h1 class="service-title">Hair Updo</h1>
-            <p class="service-price">$200+</p>
+            <h1 class="service-title animate-fade-in-up stagger-1">Hair Updo</h1>
+            <p class="service-price animate-fade-in-up stagger-2">$200+</p>
         </div>
     </section>
 
     <!-- Service Content Section -->
     <section class="service-content">
         <div class="content-container">
-            <div class="service-description">
+            <div class="service-description animate-fade-in-up">
                 <p class="description-text">
                     Whether you're preparing for a wedding, gala, or special celebration, Walaa creates stunning 
                     hair updos that perfectly complement your occasion and personal style. From romantic, loosely 
@@ -902,9 +1023,9 @@
     <!-- CTA Section -->
     <section class="service-cta">
         <div class="content-container">
-            <h2 class="cta-title">Ready for Your Special Occasion?</h2>
-            <p class="cta-text">Book your updo appointment and let's create the perfect style for your event.</p>
-            <a href="#book" class="cta-button">Book Your Appointment</a>
+            <h2 class="cta-title animate-fade-in-up">Ready for Your Special Occasion?</h2>
+            <p class="cta-text animate-fade-in-up stagger-1">Book your updo appointment and let's create the perfect style for your event.</p>
+            <a href="/form.html" class="cta-button animate-scale-in stagger-2">Book Your Appointment</a>
         </div>
     </section>
 
@@ -929,10 +1050,10 @@
             
             <div class="footer-center">
                 <div class="footer-links">
-                    <a href="/">Home</a>
-                    <a href="/#services">Services</a>
-                    <a href="/portfolio">Portfolio</a>
-                    <a href="#book">Book Now</a>
+                    <a href="/index.html">Home</a>
+                    <a href="/service.html">Services</a>
+                    <a href="/portfolio.html">Portfolio</a>
+                    <a href="/form.html">Book Now</a>
                 </div>
                 <div class="footer-address">
                     11106 Huebner Rd #310, San Antonio, TX 78230
@@ -1008,6 +1129,43 @@
         
         window.addEventListener('resize', () => {
             handleScroll();
+        });
+
+        // Intersection Observer for gallery animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe gallery items
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Animate description
+            const description = document.querySelector('.service-description');
+            if (description) {
+                observer.observe(description);
+            }
+
+            // Animate CTA elements
+            const ctaElements = document.querySelectorAll('.cta-title, .cta-text, .cta-button');
+            ctaElements.forEach(element => {
+                observer.observe(element);
+            });
         });
 
         // Gallery lightbox functionality (optional enhancement)

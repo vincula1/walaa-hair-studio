@@ -44,6 +44,71 @@
             background-color: var(--white);
         }
 
+        /* Entrance Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         /* Header Styles */
         .header {
             position: fixed;
@@ -85,6 +150,8 @@
             align-items: center;
             text-decoration: none;
             transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.2s forwards;
         }
 
         .logo-icon {
@@ -105,6 +172,23 @@
             gap: 45px;
             align-items: center;
         }
+
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 30px;
+            }
+        }
+
+        .nav-menu li {
+            opacity: 0;
+            animation: fadeInDown 0.6s ease-out forwards;
+        }
+
+        .nav-menu li:nth-child(1) { animation-delay: 0.3s; }
+        .nav-menu li:nth-child(2) { animation-delay: 0.4s; }
+        .nav-menu li:nth-child(3) { animation-delay: 0.5s; }
+        .nav-menu li:nth-child(4) { animation-delay: 0.6s; }
+        .nav-menu li:nth-child(5) { animation-delay: 0.7s; }
 
         .nav-link {
             text-decoration: none;
@@ -209,6 +293,9 @@
             text-transform: uppercase;
             border-radius: 30px;
             transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
+            flex-shrink: 0;
         }
 
         .header.scrolled .book-now-btn {
@@ -227,6 +314,7 @@
             box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
         }
 
+        /* Mobile Menu Styles */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
@@ -235,6 +323,8 @@
             border: none;
             cursor: pointer;
             padding: 8px;
+            position: relative;
+            z-index: 1002;
         }
 
         .mobile-menu-btn span {
@@ -246,6 +336,113 @@
 
         .header.scrolled .mobile-menu-btn span {
             background: var(--text-dark);
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .mobile-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-list li {
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-list li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(4) { transition-delay: 0.4s; }
+        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(5) { transition-delay: 0.5s; }
+
+        .mobile-menu-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .mobile-menu-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .mobile-menu-link.active {
+            color: var(--primary-gold);
+        }
+
+        .mobile-book-btn {
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 35px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .mobile-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
         }
 
         /* Price List Section Styles */
@@ -263,6 +460,8 @@
         .price-header {
             text-align: center;
             margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
         }
 
         .price-title {
@@ -295,6 +494,19 @@
             background: #faf8f6;
             padding: 35px;
             border-radius: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .price-category.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .price-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .category-title {
@@ -319,7 +531,24 @@
             align-items: baseline;
             font-size: 14px;
             color: #6b6b6b;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
         }
+
+        .price-category.in-view .service-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .price-category.in-view .service-item:nth-child(1) { transition-delay: 0.1s; }
+        .price-category.in-view .service-item:nth-child(2) { transition-delay: 0.15s; }
+        .price-category.in-view .service-item:nth-child(3) { transition-delay: 0.2s; }
+        .price-category.in-view .service-item:nth-child(4) { transition-delay: 0.25s; }
+        .price-category.in-view .service-item:nth-child(5) { transition-delay: 0.3s; }
+        .price-category.in-view .service-item:nth-child(6) { transition-delay: 0.35s; }
+        .price-category.in-view .service-item:nth-child(7) { transition-delay: 0.4s; }
+        .price-category.in-view .service-item:nth-child(8) { transition-delay: 0.45s; }
 
         .service-name {
             flex: 1;
@@ -357,6 +586,8 @@
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid #e5ddd5;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1s forwards;
         }
 
         .price-note {
@@ -385,6 +616,8 @@
             color: #2a2a2a;
             margin-bottom: 25px;
             font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .simple-cta-button {
@@ -400,6 +633,8 @@
             border-radius: 30px;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+            opacity: 0;
+            animation: scaleIn 0.6s ease-out 0.3s forwards;
         }
 
         .simple-cta-button:hover {
@@ -543,6 +778,18 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .nav-link {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+            
+            .book-now-btn {
+                padding: 10px 24px;
+                font-size: 11px;
+            }
+        }
+
         @media (max-width: 968px) {
             .price-grid,
             .price-grid-bottom {
@@ -672,16 +919,16 @@
     <header class="header at-top" id="header">
         <div class="header-container">
             <!-- Logo -->
-            <a href="index.html" class="logo">
-                <img src="https://i.imgur.com/3wjcHGC.png" alt="Walaa Hair Studio" class="logo-icon">
+            <a href="/index.html" class="logo">
+                <img src="assets/logo.png" alt="Walaa Hair Studio" class="logo-icon">
             </a>
 
             <!-- Navigation -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link active">Services</a></li>
-                    <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="/index.html" class="nav-link">Home</a></li>
+                    <li><a href="/service.html" class="nav-link active">Services</a></li>
+                    <li><a href="/portfolio.html" class="nav-link">Portfolio</a></li>
                     <li>
                         <a href="https://instagram.com/walaamahal" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -692,18 +939,35 @@
                             Instagram
                         </a>
                     </li>
-                    <li><a href="#book" class="book-now-btn">Book Now</a></li>
+                    <li><a href="/form.html" class="book-now-btn">Book Now</a></li>
                 </ul>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" aria-label="Menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-content">
+            <ul class="mobile-menu-list">
+                <li><a href="/index.html" class="mobile-menu-link">Home</a></li>
+                <li><a href="/service.html" class="mobile-menu-link active">Services</a></li>
+                <li><a href="/portfolio.html" class="mobile-menu-link">Portfolio</a></li>
+                <li>
+                    <a href="https://instagram.com/walaahairstudio" target="_blank" class="mobile-menu-link">
+                        Instagram
+                    </a>
+                </li>
+                <li><a href="/form.html" class="mobile-book-btn">Book Now</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Price List Section -->
     <section class="price-list-section" id="services">
@@ -879,10 +1143,10 @@
     </section>
 
     <!-- Simple CTA Section -->
-    <section class="simple-cta-section">
+    <section class="simple-cta-section" id="cta-section">
         <div class="simple-cta-wrapper">
             <h2 class="simple-cta-text">Ready to Transform Your Look?</h2>
-            <a href="#book" class="simple-cta-button">Book Your Appointment</a>
+            <a href="/form.html" class="simple-cta-button">Book Your Appointment</a>
         </div>
     </section>
 
@@ -907,10 +1171,10 @@
             
             <div class="footer-center">
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="index.html#portfolio">Portfolio</a>
-                    <a href="#book">Book Now</a>
+                    <a href="/index.html">Home</a>
+                    <a href="/service.html">Services</a>
+                    <a href="/portfolio.html">Portfolio</a>
+                    <a href="/form.html">Book Now</a>
                 </div>
                 <div class="footer-address">
                     11106 Huebner Rd #310, San Antonio, TX 78230
@@ -921,7 +1185,7 @@
             </div>
             
             <div class="footer-right">
-                <img src="https://i.imgur.com/3wjcHGC.png" alt="Walaa Hair Studio Logo" class="footer-logo-img">
+                <img src="assets/logo.png" alt="Walaa Hair Studio Logo" class="footer-logo-img">
             </div>
         </div>
     </footer>
@@ -945,6 +1209,27 @@
             lastScroll = currentScroll;
         }
 
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const body = document.body;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-book-btn');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
         let ticking = false;
         function scrollHandler() {
             if (!ticking) {
@@ -963,6 +1248,37 @@
         });
         
         window.addEventListener('resize', handleScroll);
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('in-view');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observe price categories
+        document.addEventListener('DOMContentLoaded', () => {
+            const priceCategories = document.querySelectorAll('.price-category');
+            priceCategories.forEach(category => {
+                observer.observe(category);
+            });
+
+            // Observe CTA section
+            const ctaSection = document.getElementById('cta-section');
+            if (ctaSection) {
+                observer.observe(ctaSection);
+            }
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

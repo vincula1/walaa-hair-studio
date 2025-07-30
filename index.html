@@ -10,11 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Load Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?
+            family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&
+            family=Tenor+Sans:ital,wght@0,400;1,400&
+            display=swap"
+        rel="stylesheet">
     
     <style>
-        /* pull in the font first thing */
-        @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
         * {
             margin: 0;
@@ -483,7 +486,7 @@
 
         /* Meet Walaa Section Styles */
         .meet-walaa-section {
-            padding: 100px 0;
+            padding: 100px 0 60px 0;
             background: linear-gradient(180deg, #faf8f6 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
@@ -694,7 +697,535 @@
             font-weight: 500;
         }
 
+        /* Announcement Section Styles */
+        .announcement-section {
+            padding: 0 0 20px 0;
+            background-color: #faf6f0;
+            width: 100%;
+        }
+
+        .announcement-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .announcement-banner {
+            width: 100%;
+            background-color: transparent;
+            border-radius: 0;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            box-shadow: none;
+            position: relative;
+            min-height: 120px;
+            max-height: 140px;
+        }
+
+
+
+        .salon-logo {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .divider {
+            flex-shrink: 0;
+            width: 1px;
+            height: 60px;
+            background-color: #e8dfd1;
+        }
+
+        .announcement-text {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .announcement-text .title {
+            font-family: 'Tenor Sans', serif;
+            font-size: 1.5rem;
+            color: #2a2a2a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+
+        .details {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            color: #6b6b6b;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .detail-separator {
+            color: #d4a574;
+            font-weight: 400;
+        }
+
+        .opening-date {
+            color: #d4a574;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Price List Section Styles */
+        .price-list-section {
+            padding: 40px 0 80px 0;
+            background: #ffffff;
+        }
+
+        .price-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .price-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .price-title {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 42px;
+            color: #2a2a2a;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+
+        .price-grid-bottom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-category {
+            background: #faf8f6;
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        .category-title {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 22px;
+            color: #2a2a2a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e5ddd5;
+            font-weight: 400;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 14px;
+            color: #6b6b6b;
+        }
+
+        .service-name {
+            flex: 1;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .service-name::after {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            right: 15px;
+            left: 0;
+            height: 1px;
+            background-image: repeating-linear-gradient(
+                to right,
+                #e5ddd5,
+                #e5ddd5 2px,
+                transparent 2px,
+                transparent 5px
+            );
+        }
+
+        .service-price {
+            font-weight: 500;
+            color: #2a2a2a;
+            white-space: nowrap;
+        }
+
+        .service-item.special .service-price {
+            color: #b8935f;
+        }
+
+        .price-footer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e5ddd5;
+        }
+
+        .price-note {
+            font-size: 14px;
+            color: #8a8a8a;
+            font-style: italic;
+            margin: 8px 0;
+        }
+
+        /* CTA Booking Banner Styles */
+        .cta-booking-section {
+            padding: 0;
+            background-color: #faf6f0;
+            width: 100%;
+        }
+
+        .cta-booking-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .cta-booking-banner {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 60px 0;
+            min-height: 220px;
+        }
+
+        .cta-booking-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cta-booking-title {
+            font-family: 'Tenor Sans', serif;
+            font-size: 2rem;
+            color: #2a2a2a;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .cta-booking-description {
+            font-size: 1.1rem;
+            color: #6b6b6b;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .hours-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: #2a2a2a;
+        }
+
+        .hours-label {
+            font-weight: 500;
+            color: #b8935f;
+        }
+
+        .hours-time {
+            font-weight: 400;
+        }
+
+        .cta-booking-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+            align-self: flex-start;
+        }
+
+        .cta-booking-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .cta-booking-image {
+            flex: 0 0 400px;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            padding: 80px 0 50px;
+            background-color: var(--white);
+            position: relative;
+            width: 100%;
+        }
+
+        .instagram-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .instagram-title {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            text-transform: none;
+        }
+
+        .instagram-feed {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 50px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .instagram-post {
+            flex: 0 0 220px;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .instagram-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-post:hover img {
+            transform: scale(1.05);
+        }
+
+        .instagram-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+            color: var(--white);
+            text-decoration: none;
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .instagram-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .instagram-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            padding: 60px 0 40px;
+            border-top: none;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 28px;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-copper);
+            border-color: var(--primary-copper);
+            transform: translateY(-2px);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-center {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+            opacity: 1;
+        }
+
+        .footer-address {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 0.5px;
+            font-weight: 300;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-img {
+            max-height: 120px;
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-logo-img:hover {
+            opacity: 1;
+        }
+
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .price-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .price-grid-bottom {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 100%;
+            }
+
+            .instagram-post {
+                flex: 0 0 200px;
+                height: 200px;
+            }
+
+            .instagram-feed {
+                gap: 12px;
+            }
+        }
+
         @media (max-width: 968px) {
             .cta-container {
                 flex-direction: column;
@@ -752,6 +1283,26 @@
             .cursive-name {
                 height: 45px;
             }
+
+            .announcement-banner {
+                padding: 25px 30px;
+                gap: 30px;
+                min-height: 120px;
+                max-height: 140px;
+            }
+
+            .salon-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .announcement-text .title {
+                font-size: 1.3rem;
+            }
+
+            .details {
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -785,7 +1336,7 @@
             }
 
             .meet-walaa-section {
-                padding: 80px 0;
+                padding: 80px 0 40px 0;
             }
             
             .meet-container {
@@ -816,6 +1367,84 @@
             .meet-cta-wrapper {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .announcement-wrapper {
+                padding: 0 20px;
+            }
+
+            .announcement-banner {
+                padding: 20px 25px;
+                gap: 25px;
+                min-height: 100px;
+                max-height: 120px;
+            }
+
+            .salon-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .divider {
+                height: 40px;
+            }
+
+            .announcement-text .title {
+                font-size: 1.1rem;
+                letter-spacing: 1.5px;
+            }
+
+            .details {
+                font-size: 0.85rem;
+                gap: 20px;
+            }
+
+            .price-list-section {
+                padding: 30px 0 60px 0;
+            }
+            
+            .price-container {
+                padding: 0 20px;
+            }
+            
+            .price-title {
+                font-size: 36px;
+            }
+            
+            .price-grid,
+            .price-grid-bottom {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .category-title {
+                font-size: 20px;
+            }
+
+            .cta-booking-banner {
+                flex-direction: column;
+                gap: 40px;
+                padding: 50px 0;
+                text-align: center;
+            }
+
+            .cta-booking-content {
+                align-items: center;
+            }
+
+            .cta-booking-button {
+                align-self: center;
+            }
+
+            .cta-booking-image {
+                flex: 1;
+                width: 100%;
+                max-width: 500px;
+                height: 200px;
+            }
+
+            .cta-booking-wrapper {
+                padding: 0 20px;
             }
         }
 
@@ -865,6 +1494,128 @@
             .image-accent {
                 display: none;
             }
+
+            .announcement-section {
+                padding: 0 0 15px 0;
+            }
+
+            .announcement-banner {
+                padding: 15px 20px;
+                gap: 20px;
+                min-height: 90px;
+                max-height: 110px;
+            }
+
+            .salon-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .divider {
+                height: 35px;
+            }
+
+            .announcement-text .title {
+                font-size: 0.95rem;
+                letter-spacing: 1.2px;
+            }
+
+            .details {
+                font-size: 0.75rem;
+                gap: 15px;
+            }
+
+            .price-category {
+                padding: 25px 20px;
+            }
+            
+            .service-item {
+                font-size: 13px;
+            }
+            
+            .service-name::after {
+                display: none;
+            }
+
+            .cta-booking-banner {
+                padding: 40px 0;
+                min-height: auto;
+            }
+
+            .cta-booking-title {
+                font-size: 1.5rem;
+            }
+
+            .cta-booking-description {
+                font-size: 1rem;
+            }
+
+            .hours-info {
+                font-size: 0.9rem;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .cta-booking-image {
+                height: 180px;
+            }
+
+            .cta-booking-button {
+                padding: 16px 32px;
+                font-size: 12px;
+            }
+
+            .instagram-section {
+                padding: 60px 0 40px;
+            }
+
+            .instagram-container {
+                padding: 0 20px;
+            }
+
+            .instagram-title {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+
+            .instagram-feed {
+                overflow-x: auto;
+                justify-content: flex-start;
+                margin: 0 -20px 40px;
+                padding: 0 20px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .instagram-feed::-webkit-scrollbar {
+                display: none;
+            }
+
+            .instagram-post {
+                flex: 0 0 160px;
+                height: 160px;
+            }
+
+            .instagram-button {
+                padding: 16px 32px;
+                font-size: 12px;
+            }
+
+            .footer {
+                padding: 40px 0 30px;
+            }
+
+            .footer-container {
+                padding: 0 20px;
+            }
+
+            .footer-links {
+                gap: 20px;
+            }
+
+            .footer-links a {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -874,17 +1625,17 @@
         <div class="header-container">
             <!-- Logo -->
             <a href="#" class="logo">
-                <img src="https://i.imgur.com/3wjcHGC.png" alt="Walaa Hair Studio" class="logo-icon">
+                <img src="assets/logo.png" alt="Walaa Hair Studio" class="logo-icon">
             </a>
 
             <!-- Navigation -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="/index.html" class="nav-link">Home</a></li>
+                    <li><a href="/service.html" class="nav-link">Services</a></li>
+                    <li><a href="/portfolio.html" class="nav-link">Portfolio</a></li>
                     <li>
-                        <a href="https://instagram.com/walaahairstudio" target="_blank" class="instagram-link">
+                        <a href="https://instagram.com/walaamahal" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -893,7 +1644,7 @@
                             Instagram
                         </a>
                     </li>
-                    <li><a href="#book" class="book-now-btn">Book Now</a></li>
+                    <li><a href="/form.html" class="book-now-btn">Book Now</a></li>
                 </ul>
             </nav>
 
@@ -956,7 +1707,7 @@
             <div class="meet-content">
                 <div class="meet-header">
                     <h2 class="meet-title">
-                        Meet <img src="https://i.imgur.com/1xDWqLe.png" alt="Walaa" class="cursive-name">
+                        Meet <img src="assets/walaa.png" alt="Walaa" class="cursive-name">
                     </h2>
                 </div>
                 
@@ -985,13 +1736,310 @@
             <div class="meet-image">
                 <div class="image-frame-wrapper">
                     <div class="decorative-element"></div>
-                    <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?w=600&h=800&fit=crop" alt="Walaa - Master Hair Stylist" class="walaa-portrait">
+                    <img src="assets/walaapicture.jpg" alt="Walaa - Master Hair Stylist" class="walaa-portrait">
                     <div class="image-accent"></div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <!-- Grand Opening Announcement Section -->
+    <section class="announcement-section">
+        <div class="announcement-wrapper">
+            <div class="announcement-banner">
+                <img src="assets/new.png" alt="Walaa Hair Studio" class="salon-logo">
+                
+                <div class="divider"></div>
+                
+                <div class="announcement-text">
+                    <h2 class="title">Grand Opening</h2>
+                    
+                    <div class="details">
+                        <span class="detail-item">Luxury Hair Salon</span>
+                        <span class="detail-separator">•</span>
+                        <span class="detail-item">San Antonio, Texas</span>
+                        <span class="detail-separator">•</span>
+                        <span class="detail-item opening-date">Open Now</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price List Section -->
+    <section class="price-list-section">
+        <div class="price-container">
+            <div class="price-header">
+                <h2 class="price-title">Services & Pricing</h2>
+            </div>
+            
+            <div class="price-grid">
+                <!-- Basic Services -->
+                <div class="price-category">
+                    <h3 class="category-title">Essential Services</h3>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span class="service-name">Haircut</span>
+                            <span class="service-price">$60</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Haircut + Style</span>
+                            <span class="service-price">$80+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Wet Cut</span>
+                            <span class="service-price">$50+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Dry Cut</span>
+                            <span class="service-price">$20+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Bang Trim</span>
+                            <span class="service-price">$10+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Blow Out</span>
+                            <span class="service-price">$50+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Services -->
+                <div class="price-category">
+                    <h3 class="category-title">Color Services</h3>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span class="service-name">All Over Color + Blowout</span>
+                            <span class="service-price">$160+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">All Over Color + Haircut + Blowout</span>
+                            <span class="service-price">$200+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Color Retouch Add-On</span>
+                            <span class="service-price">$90+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Color Retouch w/ Blowout</span>
+                            <span class="service-price">$180+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Color Retouch w/ Haircut</span>
+                            <span class="service-price">$150+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Gloss + Blowout</span>
+                            <span class="service-price">$100+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Gloss + Haircut</span>
+                            <span class="service-price">$120+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight Services -->
+                <div class="price-category">
+                    <h3 class="category-title">Highlights & Foils</h3>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span class="service-name">Custom Full Foil w/ Blowout</span>
+                            <span class="service-price">$320+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Custom Full Foil w/ Haircut</span>
+                            <span class="service-price">$380+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Partial Highlight + Blowout</span>
+                            <span class="service-price">$220+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Partial Highlight + Haircut</span>
+                            <span class="service-price">$280+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Partial Lowlight w/ Blowout</span>
+                            <span class="service-price">$220+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Partial Lowlight w/ Haircut</span>
+                            <span class="service-price">$280+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Mini Foil w/ Haircut</span>
+                            <span class="service-price">$200+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Bleach Retouch w/ Blowout</span>
+                            <span class="service-price">$250+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-grid-bottom">
+                <!-- Threading Services -->
+                <div class="price-category">
+                    <h3 class="category-title">Threading Services</h3>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span class="service-name">Eyebrow Threading</span>
+                            <span class="service-price">$15</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Mustache Threading</span>
+                            <span class="service-price">$7</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Full Face Threading</span>
+                            <span class="service-price">$40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specialty Services -->
+                <div class="price-category">
+                    <h3 class="category-title">Specialty Services</h3>
+                    <div class="service-list">
+                        <div class="service-item">
+                            <span class="service-name">Balayage</span>
+                            <span class="service-price">$300+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Color Correction</span>
+                            <span class="service-price">$400+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Keratin Smoothing Treatment</span>
+                            <span class="service-price">$320+</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Olaplex Treatment</span>
+                            <span class="service-price">$50</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Hair Updo</span>
+                            <span class="service-price">$200+</span>
+                        </div>
+                        <div class="service-item special">
+                            <span class="service-name">New Client Consultation</span>
+                            <span class="service-price">Complimentary</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-footer">
+                <p class="price-note">Prices may vary based on hair length, density, and service complexity</p>
+                <p class="price-note">Add-On: Length & Density – $20+</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-booking-section">
+        <div class="cta-booking-wrapper">
+            <div class="cta-booking-banner">
+                <div class="cta-booking-content">
+                    <h3 class="cta-booking-title">Open 7 Days a Week</h3>
+                    <p class="cta-booking-description">Book an appointment online here</p>
+                    <div class="hours-info">
+                        <span class="hours-label">Hours of Operation:</span>
+                        <span class="hours-time">10am - 4pm Everyday</span>
+                    </div>
+                    <a href="#book" class="cta-booking-button">Book Your Appointment</a>
+                </div>
+                <div class="cta-booking-image">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=300&fit=crop&q=80" alt="Walaa Hair Studio Interior" class="booking-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram-section">
+        <div class="instagram-container">
+            <h2 class="instagram-title">@walaamahal</h2>
+            
+            <div class="instagram-feed">
+                <!-- Instagram Post 1 -->
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=400&fit=crop" alt="Blonde transformation">
+                </div>
+
+                <!-- Instagram Post 2 -->
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=400&fit=crop" alt="Curly hair styling">
+                </div>
+
+                <!-- Instagram Post 3 -->
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=400&fit=crop" alt="Brunette highlights">
+                </div>
+
+                <!-- Instagram Post 4 -->
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1522336284037-91f7da073525?w=400&h=400&fit=crop" alt="Hair color transformation">
+                </div>
+
+                <!-- Instagram Post 5 -->
+                <div class="instagram-post">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=400&h=400&fit=crop" alt="Red hair styling">
+                </div>
+            </div>
+
+            <a href="https://instagram.com/walaamahal" target="_blank" class="instagram-button">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                </svg>
+                View on Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">Walaa Mahal</div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/p/Walaa-Mahal-100067339613288/" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/walaamahal/?hl=en" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.405a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-center">
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#book">Book Now</a>
+                </div>
+                <div class="footer-address">
+                    11106 Huebner Rd #310, San Antonio, TX 78230
+                </div>
+                <div class="footer-copyright">
+                    &copy; 2025 walaamahal.com. All Rights reserved.
+                </div>
+            </div>
+            
+            <div class="footer-right">
+                <img src="assets/logo.png" alt="Walaa Hair Studio Logo" class="footer-logo-img">
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Header scroll effect
@@ -1043,6 +2091,31 @@
                     });
                 }
             });
+        });
+
+        // Instagram fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.instagram-post').forEach(post => {
+            observer.observe(post);
         });
     </script>
 </body>

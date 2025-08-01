@@ -1565,7 +1565,78 @@
             opacity: 1;
         }
 
-        /* Responsive Design */
+        /* Scroll Animation Classes */
+        .scroll-reveal {
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.fade-up {
+            transform: translateY(40px);
+        }
+
+        .scroll-reveal.fade-left {
+            transform: translateX(-40px);
+        }
+
+        .scroll-reveal.fade-right {
+            transform: translateX(40px);
+        }
+
+        .scroll-reveal.fade-scale {
+            transform: scale(0.95);
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1);
+        }
+
+        /* Stagger animation for grid items */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Service card hover with smooth transition */
+        .service-item {
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Price category animation */
+        .price-category {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .price-category.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Instagram post animation */
+        .instagram-post {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .instagram-post.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
         @media (max-width: 1200px) {
             .price-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -2096,7 +2167,7 @@
     <!-- CTA Banner Section with Feminine Copy -->
     <section class="cta-banner" id="home">
         <div class="cta-container">
-            <div class="cta-content">
+            <div class="cta-content scroll-reveal fade-up">
                 <span class="cta-badge">Trusted by San Antonio Women</span>
                 <h2 class="cta-title">
                     Where Beautiful Hair and <span>Beautiful Moments</span> Begin
@@ -2125,7 +2196,7 @@
                 </a>
             </div>
             
-            <div class="cta-image">
+            <div class="cta-image scroll-reveal fade-scale">
                 <div class="image-wrapper">
                     <video autoplay muted loop playsinline class="hero-video">
                         <source src="https://res.cloudinary.com/dzwotlelh/video/upload/v1753551002/New_hair_by_walaamahal___%EF%B8%8F_%EF%B8%8F_%D9%87%D8%A7%D9%8A%D9%84%D8%A7%D9%8A%D8%AA_%D8%B5%D8%A7%D9%84%D9%88%D9%86_%D8%B5%D8%A8%D8%BA_%D8%B3%D8%AA%D8%A7%D9%8A%D9%84_highlight_newstyle_salon_foryou_b2fulw.mp4" type="video/mp4">
@@ -2140,7 +2211,7 @@
     <!-- Meet Walaa Section -->
     <section class="meet-walaa-section">
         <div class="meet-container">
-            <div class="meet-content">
+            <div class="meet-content scroll-reveal fade-left">
                 <div class="meet-header">
                     <h2 class="meet-title">
                         Meet <img src="assets/walaa.png" alt="Walaa" class="cursive-name">
@@ -2169,7 +2240,7 @@
                 </div>
             </div>
             
-            <div class="meet-image">
+            <div class="meet-image scroll-reveal fade-right">
                 <div class="image-frame-wrapper">
                     <div class="decorative-element"></div>
                     <img src="assets/walaapicture.jpg" alt="Walaa - Master Hair Stylist" class="walaa-portrait">
@@ -2183,7 +2254,7 @@
     <!-- Grand Opening Announcement Section -->
     <section class="announcement-section">
         <div class="announcement-wrapper">
-            <div class="announcement-banner">
+            <div class="announcement-banner scroll-reveal fade-up">
                 <div class="salon-image">
                     <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop&q=80" alt="Walaa Hair Studio Interior">
                 </div>
@@ -2211,7 +2282,7 @@
     <!-- Price List Section -->
     <section class="price-list-section">
         <div class="price-container">
-            <div class="price-header">
+            <div class="price-header scroll-reveal fade-up">
                 <h2 class="price-title">Services & Pricing</h2>
             </div>
             
@@ -2384,7 +2455,7 @@
     <!-- Call to Action Banner -->
     <section class="cta-booking-section">
         <div class="cta-booking-wrapper">
-            <div class="cta-booking-banner">
+            <div class="cta-booking-banner scroll-reveal fade-up">
                 <div class="cta-booking-content">
                     <span class="cta-booking-badge">Experience Excellence</span>
                     <h3 class="cta-booking-title">Your Hair Dreams Await</h3>
@@ -2410,7 +2481,7 @@
     <!-- Instagram Section -->
     <section class="instagram-section">
         <div class="instagram-container">
-            <div class="instagram-header">
+            <div class="instagram-header scroll-reveal fade-up">
                 <span class="instagram-badge">Follow Our Journey</span>
                 <h2 class="instagram-title">@walaamahal</h2>
                 <p class="instagram-subtitle">Where every transformation tells a beautiful story</p>
@@ -2569,6 +2640,71 @@
         document.querySelectorAll('.instagram-post').forEach(post => {
             post.style.opacity = '1';
             post.style.transform = 'translateY(0)';
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const scrollRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Handle staggered animations for grid items
+                    if (entry.target.classList.contains('price-grid') || 
+                        entry.target.classList.contains('price-grid-bottom')) {
+                        const items = entry.target.querySelectorAll('.price-category');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('visible');
+                            }, index * 150);
+                        });
+                    }
+                    
+                    // Handle Instagram posts
+                    if (entry.target.classList.contains('instagram-feed')) {
+                        const posts = entry.target.querySelectorAll('.instagram-post');
+                        posts.forEach((post, index) => {
+                            setTimeout(() => {
+                                post.classList.add('visible');
+                            }, index * 100);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Initialize scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add scroll reveal to elements
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                scrollRevealObserver.observe(el);
+            });
+            
+            // Add animation classes to price categories
+            document.querySelectorAll('.price-category').forEach(el => {
+                el.classList.add('price-category');
+            });
+            
+            // Add animation classes to Instagram posts
+            document.querySelectorAll('.instagram-post').forEach(el => {
+                el.classList.add('instagram-post');
+            });
+            
+            // Observe price grids
+            document.querySelectorAll('.price-grid, .price-grid-bottom').forEach(el => {
+                scrollRevealObserver.observe(el);
+            });
+            
+            // Observe Instagram feed
+            const instagramFeed = document.querySelector('.instagram-feed');
+            if (instagramFeed) {
+                scrollRevealObserver.observe(instagramFeed);
+            }
         });
     </script>
 </body>

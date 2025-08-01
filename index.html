@@ -1452,17 +1452,15 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 40px;
         }
 
         .footer-left {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            justify-self: start;
         }
 
         .footer-logo {
@@ -1509,9 +1507,9 @@
             flex-direction: column;
             gap: 10px;
             text-align: center;
+            flex: 1;
             align-items: center;
             justify-content: center;
-            justify-self: center;
         }
 
         .footer-links {
@@ -1554,8 +1552,6 @@
         .footer-right {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            justify-self: end;
         }
 
         .footer-logo-img {
@@ -2022,14 +2018,15 @@
             }
 
             .footer-container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 40px;
                 text-align: center;
             }
 
             .footer-left,
             .footer-center,
             .footer-right {
-                justify-self: center;
+                align-items: center;
             }
 
             .footer-links {
@@ -2057,7 +2054,6 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="service.html" class="nav-link">Services</a></li>
-                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                     <li>
                         <a href="https://instagram.com/walaamahal" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2087,7 +2083,6 @@
             <ul class="mobile-menu-list">
                 <li><a href="index.html" class="mobile-menu-link active">Home</a></li>
                 <li><a href="service.html" class="mobile-menu-link">Services</a></li>
-                <li><a href="portfolio.html" class="mobile-menu-link">Portfolio</a></li>
                 <li>
                     <a href="https://instagram.com/walaamahal" target="_blank" class="mobile-menu-link">
                         Instagram
@@ -2170,7 +2165,7 @@
                     <a href="form.html" class="meet-cta-button">
                         Book Your Consultation
                     </a>
-                    <a href="portfolio.html" class="meet-secondary-link">View Portfolio →</a>
+                    <a href="portfolio.html" class="meet-secondary-link">View Gallery →</a>
                 </div>
             </div>
             
@@ -2480,7 +2475,6 @@
                 <div class="footer-links">
                     <a href="index.html">Home</a>
                     <a href="service.html">Services</a>
-                    <a href="portfolio.html">Portfolio</a>
                     <a href="form.html">Book Now</a>
                 </div>
                 <div class="footer-address">

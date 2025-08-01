@@ -42,89 +42,6 @@
             background-color: var(--bg-light);
         }
 
-        /* Entrance Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Animation Classes */
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .animate-fade-in-down {
-            animation: fadeInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        .animate-scale-in {
-            animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        .animate-slide-in-left {
-            animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        /* Staggered Animations */
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
-
         /* Header Styles */
         .header {
             position: fixed;
@@ -166,8 +83,6 @@
             align-items: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out 0.2s forwards;
         }
 
         .logo-icon {
@@ -188,17 +103,6 @@
             gap: 45px;
             align-items: center;
         }
-
-        .nav-menu li {
-            opacity: 0;
-            animation: fadeInDown 0.6s ease-out forwards;
-        }
-
-        .nav-menu li:nth-child(1) { animation-delay: 0.3s; }
-        .nav-menu li:nth-child(2) { animation-delay: 0.4s; }
-        .nav-menu li:nth-child(3) { animation-delay: 0.5s; }
-        .nav-menu li:nth-child(4) { animation-delay: 0.6s; }
-        .nav-menu li:nth-child(5) { animation-delay: 0.7s; }
 
         .nav-link {
             text-decoration: none;
@@ -476,6 +380,13 @@
             pointer-events: none;
         }
 
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 0 20px;
+        }
+
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -490,7 +401,6 @@
             transition: all 0.3s ease;
             position: relative;
             z-index: 1;
-            opacity: 0;
         }
 
         .back-link:hover {
@@ -513,7 +423,9 @@
             text-transform: uppercase;
             position: relative;
             z-index: 1;
-            opacity: 0;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .service-price {
@@ -523,12 +435,11 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 1;
-            opacity: 0;
         }
 
         /* Service Content Section */
         .service-content {
-            padding: 60px 0 20px;
+            padding: 60px 0 80px;
             background: var(--bg-light);
         }
 
@@ -541,7 +452,6 @@
         .service-description {
             text-align: center;
             margin-bottom: 60px;
-            opacity: 0;
         }
 
         .description-text {
@@ -552,58 +462,30 @@
             margin: 0 auto;
         }
 
-        /* Gallery Grid - New Layout */
-        .gallery-container {
-            max-width: 1200px;
+        /* Single Image Section */
+        .service-image-container {
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .gallery-item {
+        .service-image-wrapper {
             position: relative;
             overflow: hidden;
             border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            height: 100%;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .gallery-item.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-image {
+        .service-image {
             width: 100%;
-            height: 450px;
-            object-fit: cover;
+            height: auto;
             display: block;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.05);
         }
 
         /* CTA Section */
         .service-cta {
             text-align: center;
-            padding: 40px 0 60px;
+            padding: 80px 0 60px;
             background: var(--white);
         }
 
@@ -612,14 +494,12 @@
             font-size: 36px;
             color: var(--text-dark);
             margin-bottom: 20px;
-            opacity: 0;
         }
 
         .cta-text {
             font-size: 18px;
             color: var(--text-light);
             margin-bottom: 30px;
-            opacity: 0;
         }
 
         .cta-button {
@@ -635,7 +515,6 @@
             border-radius: 30px;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
-            opacity: 0;
         }
 
         .cta-button:hover {
@@ -664,6 +543,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            align-items: center;
             justify-self: start;
         }
 
@@ -674,11 +554,13 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 400;
+            text-align: center;
         }
 
         .footer-social {
             display: flex;
             gap: 15px;
+            justify-content: center;
         }
 
         .footer-social a {
@@ -772,12 +654,6 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .gallery-grid {
-                gap: 30px;
-            }
-        }
-
         @media (max-width: 968px) {
             .service-title {
                 font-size: 40px;
@@ -785,11 +661,6 @@
 
             .service-price {
                 font-size: 20px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
             }
 
             .cta-title {
@@ -818,12 +689,17 @@
                 padding: 140px 0 40px;
             }
 
+            .hero-content-wrapper {
+                padding: 0 15px;
+            }
+
             .back-link {
                 margin-top: 20px;
             }
 
             .service-title {
                 font-size: 32px;
+                letter-spacing: 1px;
             }
 
             .service-price {
@@ -831,20 +707,12 @@
             }
 
             .content-container,
-            .gallery-container {
+            .service-image-container {
                 padding: 0 20px;
             }
 
             .description-text {
                 font-size: 16px;
-            }
-
-            .gallery-grid {
-                gap: 25px;
-            }
-
-            .gallery-image {
-                height: 400px;
             }
 
             .footer-container {
@@ -864,6 +732,10 @@
                 padding: 100px 0 30px;
             }
 
+            .hero-content-wrapper {
+                padding: 0 10px;
+            }
+
             .back-link {
                 font-size: 13px;
                 margin-top: 30px;
@@ -876,24 +748,11 @@
 
             .service-title {
                 font-size: 28px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-bottom: 20px;
-            }
-
-            .gallery-item {
-                margin-bottom: 0;
-            }
-
-            .gallery-image {
-                height: 350px;
+                letter-spacing: 0.5px;
             }
 
             .service-content {
-                padding-bottom: 10px;
+                padding: 40px 0 60px;
             }
 
             .cta-title {
@@ -916,16 +775,15 @@
     <header class="header at-top" id="header">
         <div class="header-container">
             <!-- Logo -->
-            <a href="/index.html" class="logo">
+            <a href="/" class="logo">
                 <img src="assets/logo.png" alt="Walaa Hair Studio" class="logo-icon">
             </a>
 
             <!-- Navigation -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="/index.html" class="nav-link">Home</a></li>
-                    <li><a href="/service.html" class="nav-link">Services</a></li>
-                    <li><a href="/portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/#services" class="nav-link active">Services</a></li>
                     <li>
                         <a href="https://instagram.com/walaahairstudio" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -936,7 +794,7 @@
                             Instagram
                         </a>
                     </li>
-                    <li><a href="/form.html" class="book-now-btn">Book Now</a></li>
+                    <li><a href="#book" class="book-now-btn">Book Now</a></li>
                 </ul>
             </nav>
 
@@ -953,37 +811,36 @@
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu-content">
             <ul class="mobile-menu-list">
-                <li><a href="/index.html" class="mobile-menu-link">Home</a></li>
-                <li><a href="/service.html" class="mobile-menu-link">Services</a></li>
-                <li><a href="/portfolio.html" class="mobile-menu-link active">Portfolio</a></li>
+                <li><a href="/" class="mobile-menu-link">Home</a></li>
+                <li><a href="/#services" class="mobile-menu-link active">Services</a></li>
                 <li>
                     <a href="https://instagram.com/walaahairstudio" target="_blank" class="mobile-menu-link">
                         Instagram
                     </a>
                 </li>
-                <li><a href="/form.html" class="mobile-book-btn">Book Now</a></li>
+                <li><a href="#book" class="mobile-book-btn">Book Now</a></li>
             </ul>
         </div>
     </div>
 
     <!-- Service Hero Section -->
     <section class="service-hero">
-        <div class="content-container">
-            <a href="/portfolio.html" class="back-link animate-slide-in-left">
+        <div class="hero-content-wrapper">
+            <a href="/#services" class="back-link">
                 <svg class="back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M19 12H5M5 12l7 7m-7-7l7-7"/>
                 </svg>
-                Back to Portfolio
+                Back to Services
             </a>
-            <h1 class="service-title animate-fade-in-up stagger-1">Hair Updo</h1>
-            <p class="service-price animate-fade-in-up stagger-2">$200+</p>
+            <h1 class="service-title">Hair Updo</h1>
+            <p class="service-price">$200+</p>
         </div>
     </section>
 
     <!-- Service Content Section -->
     <section class="service-content">
         <div class="content-container">
-            <div class="service-description animate-fade-in-up">
+            <div class="service-description">
                 <p class="description-text">
                     Whether you're preparing for a wedding, gala, or special celebration, Walaa creates stunning 
                     hair updos that perfectly complement your occasion and personal style. From romantic, loosely 
@@ -996,26 +853,9 @@
             </div>
         </div>
 
-        <div class="gallery-container">
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=800&fit=crop" alt="Elegant wedding updo" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560869713-bf165a9cfac8?w=600&h=800&fit=crop" alt="Romantic bridal updo" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&h=800&fit=crop" alt="Classic chignon style" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1522337094846-8a818192de1a?w=600&h=800&fit=crop" alt="Modern updo with braids" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1629397685944-f7cddea3ffc7?w=600&h=800&fit=crop" alt="Sophisticated evening updo" class="gallery-image">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=600&h=800&fit=crop" alt="Textured updo style" class="gallery-image">
-                </div>
+        <div class="service-image-container">
+            <div class="service-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=800&fit=crop" alt="Elegant wedding updo" class="service-image">
             </div>
         </div>
     </section>
@@ -1023,9 +863,9 @@
     <!-- CTA Section -->
     <section class="service-cta">
         <div class="content-container">
-            <h2 class="cta-title animate-fade-in-up">Ready for Your Special Occasion?</h2>
-            <p class="cta-text animate-fade-in-up stagger-1">Book your updo appointment and let's create the perfect style for your event.</p>
-            <a href="/form.html" class="cta-button animate-scale-in stagger-2">Book Your Appointment</a>
+            <h2 class="cta-title">Ready for Your Special Occasion?</h2>
+            <p class="cta-text">Book your updo appointment and let's create the perfect style for your event.</p>
+            <a href="#book" class="cta-button">Book Your Appointment</a>
         </div>
     </section>
 
@@ -1050,10 +890,9 @@
             
             <div class="footer-center">
                 <div class="footer-links">
-                    <a href="/index.html">Home</a>
-                    <a href="/service.html">Services</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/form.html">Book Now</a>
+                    <a href="/">Home</a>
+                    <a href="/#services">Services</a>
+                    <a href="#book">Book Now</a>
                 </div>
                 <div class="footer-address">
                     11106 Huebner Rd #310, San Antonio, TX 78230
@@ -1129,53 +968,6 @@
         
         window.addEventListener('resize', () => {
             handleScroll();
-        });
-
-        // Intersection Observer for gallery animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('in-view');
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-
-        // Observe gallery items
-        document.addEventListener('DOMContentLoaded', () => {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            galleryItems.forEach(item => {
-                observer.observe(item);
-            });
-
-            // Animate description
-            const description = document.querySelector('.service-description');
-            if (description) {
-                observer.observe(description);
-            }
-
-            // Animate CTA elements
-            const ctaElements = document.querySelectorAll('.cta-title, .cta-text, .cta-button');
-            ctaElements.forEach(element => {
-                observer.observe(element);
-            });
-        });
-
-        // Gallery lightbox functionality (optional enhancement)
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                // You can add lightbox functionality here if desired
-                console.log('Gallery item clicked');
-            });
         });
     </script>
 </body>

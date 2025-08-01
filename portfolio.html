@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keratin Smoothing Treatment - Walaa Hair Studio</title>
+    <title>Explore Our Services - Walaa Hair Studio</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?
-            family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&
-            family=Tenor+Sans:ital,wght@0,400;1,400&
-            display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Tenor+Sans:ital,wght@0,400;1,400&display=swap"
         rel="stylesheet">
-    
+        
     <style>
         * {
             margin: 0;
@@ -207,8 +204,6 @@
             text-transform: uppercase;
             border-radius: 30px;
             transition: all 0.3s ease;
-            white-space: nowrap;
-            min-width: 120px;
         }
 
         .header.scrolled .book-now-btn {
@@ -316,7 +311,6 @@
         .mobile-menu-overlay.active .mobile-menu-list li:nth-child(2) { transition-delay: 0.2s; }
         .mobile-menu-overlay.active .mobile-menu-list li:nth-child(3) { transition-delay: 0.3s; }
         .mobile-menu-overlay.active .mobile-menu-list li:nth-child(4) { transition-delay: 0.4s; }
-        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(5) { transition-delay: 0.5s; }
 
         .mobile-menu-link {
             color: var(--white);
@@ -358,16 +352,17 @@
             box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
         }
 
-        /* Service Hero Section */
-        .service-hero {
-            padding: 160px 0 60px;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+        /* Services Header */
+        .services-header {
             text-align: center;
+            padding: 180px 0 60px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            margin-top: 0;
             position: relative;
             overflow: hidden;
         }
 
-        .service-hero::before {
+        .services-header::before {
             content: '';
             position: absolute;
             top: 0;
@@ -380,40 +375,7 @@
             pointer-events: none;
         }
 
-        .hero-content-wrapper {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            padding: 0 20px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary-gold);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-            margin-top: 0;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .back-link:hover {
-            color: var(--primary-rose);
-            transform: translateX(-5px);
-        }
-
-        .back-arrow {
-            width: 16px;
-            height: 16px;
-        }
-
-        .service-title {
+        .services-title {
             font-family: 'Tenor Sans', Georgia, serif;
             font-size: 48px;
             font-weight: 400;
@@ -423,103 +385,236 @@
             text-transform: uppercase;
             position: relative;
             z-index: 1;
-            line-height: 1.2;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
         }
 
-        .service-price {
-            font-size: 24px;
-            color: var(--primary-gold);
+        .services-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             position: relative;
             z-index: 1;
         }
 
-        /* Service Content Section */
-        .service-content {
-            padding: 60px 0 80px;
+        /* Filter Section */
+        .filter-wrapper {
+            position: relative;
+            z-index: 900;
+        }
+
+        .filter-section {
+            background: var(--white);
+            padding: 25px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 5px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-rose) transparent;
+        }
+
+        .filter-buttons::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .filter-buttons::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .filter-buttons::-webkit-scrollbar-thumb {
+            background: var(--primary-rose);
+            border-radius: 2px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #e5ddd5;
+            color: var(--text-light);
+            padding: 10px 24px;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 25px;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .filter-btn:hover {
+            color: var(--text-dark);
+            border-color: var(--primary-copper);
+        }
+
+        .filter-btn.active {
+            color: var(--white);
+            border-color: var(--primary-copper);
+            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
+        }
+
+        .filter-btn.active::before {
+            display: none;
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 60px 0 100px;
             background: var(--bg-light);
         }
 
-        .content-container {
-            max-width: 1000px;
+        .services-container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
         }
 
-        .service-description {
-            text-align: center;
-            margin-bottom: 60px;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .description-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--text-light);
-            max-width: 800px;
-            margin: 0 auto;
+        /* Service Item */
+        .service-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+            background: var(--white);
+            text-decoration: none;
+            display: block;
         }
 
-        /* Single Image Section */
-        .service-image-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 40px;
+        .service-item.hidden {
+            display: none;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
 
         .service-image-wrapper {
             position: relative;
+            width: 100%;
+            height: 400px;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .service-image {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-item:hover .service-image {
+            transform: scale(1.08);
+        }
+
+        /* Overlay */
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+            opacity: 1;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+
+        .service-item:hover .service-overlay {
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .service-name {
+            font-family: 'Tenor Sans', Georgia, serif;
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 8px;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-price {
+            font-size: 16px;
+            color: var(--primary-gold);
+            font-weight: 300;
+            letter-spacing: 1px;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover .service-name,
+        .service-item:hover .service-price {
+            transform: translateY(-5px);
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            display: none;
+        }
+
+        .no-results.show {
             display: block;
         }
 
-        /* CTA Section */
-        .service-cta {
-            text-align: center;
-            padding: 80px 0 60px;
-            background: var(--white);
-        }
-
-        .cta-title {
-            font-family: 'Tenor Sans', Georgia, serif;
-            font-size: 36px;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-
-        .cta-text {
+        .no-results-text {
             font-size: 18px;
             color: var(--text-light);
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-copper) 100%);
-            color: var(--white);
-            text-decoration: none;
-            padding: 18px 40px;
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+            margin-bottom: 20px;
         }
 
         /* Footer */
@@ -533,18 +628,15 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 40px;
         }
 
         .footer-left {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            align-items: center;
-            justify-self: start;
         }
 
         .footer-logo {
@@ -554,13 +646,11 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 400;
-            text-align: center;
         }
 
         .footer-social {
             display: flex;
             gap: 15px;
-            justify-content: center;
         }
 
         .footer-social a {
@@ -593,9 +683,9 @@
             flex-direction: column;
             gap: 10px;
             text-align: center;
+            flex: 1;
             align-items: center;
             justify-content: center;
-            justify-self: center;
         }
 
         .footer-links {
@@ -638,8 +728,6 @@
         .footer-right {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            justify-self: end;
         }
 
         .footer-logo-img {
@@ -654,17 +742,29 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+            }
+
+            .service-image-wrapper {
+                height: 350px;
+            }
+        }
+
         @media (max-width: 968px) {
-            .service-title {
+            .services-title {
                 font-size: 40px;
             }
 
-            .service-price {
-                font-size: 20px;
+            .filter-buttons {
+                gap: 10px;
             }
 
-            .cta-title {
-                font-size: 32px;
+            .filter-btn {
+                padding: 8px 18px;
+                font-size: 11px;
             }
         }
 
@@ -685,87 +785,85 @@
                 display: none;
             }
 
-            .service-hero {
+            .services-header {
                 padding: 140px 0 40px;
             }
 
-            .hero-content-wrapper {
-                padding: 0 15px;
+            .filter-section {
+                padding: 20px 0;
             }
 
-            .back-link {
-                margin-top: 20px;
+            .filter-buttons {
+                gap: 8px;
             }
 
-            .service-title {
-                font-size: 32px;
-                letter-spacing: 1px;
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 10px;
             }
 
-            .service-price {
-                font-size: 18px;
+            .services-section {
+                padding: 40px 0 80px;
             }
 
-            .content-container,
-            .service-image-container {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .services-container {
                 padding: 0 20px;
             }
 
-            .description-text {
-                font-size: 16px;
-            }
-
             .footer-container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 40px;
                 text-align: center;
             }
 
             .footer-left,
             .footer-center,
             .footer-right {
-                justify-self: center;
+                align-items: center;
             }
         }
 
         @media (max-width: 480px) {
-            .service-hero {
-                padding: 100px 0 30px;
+            .services-title {
+                font-size: 32px;
             }
 
-            .hero-content-wrapper {
-                padding: 0 10px;
-            }
-
-            .back-link {
-                font-size: 13px;
-                margin-top: 30px;
-            }
-
-            .cta-button {
-                padding: 15px 30px;
-                font-size: 13px;
-            }
-
-            .service-title {
-                font-size: 28px;
-                letter-spacing: 0.5px;
-            }
-
-            .service-content {
-                padding: 40px 0 60px;
-            }
-
-            .cta-title {
-                font-size: 28px;
-            }
-
-            .cta-text {
+            .services-subtitle {
                 font-size: 16px;
             }
 
+            .service-image-wrapper {
+                height: 300px;
+            }
+
+            .service-name {
+                font-size: 20px;
+            }
+
+            .service-price {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 40px 0 30px;
+            }
+
+            .footer-container {
+                padding: 0 20px;
+            }
+
             .footer-links {
-                flex-wrap: wrap;
                 gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .footer-links a {
+                font-size: 12px;
             }
         }
     </style>
@@ -782,8 +880,8 @@
             <!-- Navigation -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/#services" class="nav-link active">Services</a></li>
+                    <li><a href="/index.html" class="nav-link">Home</a></li>
+                    <li><a href="/index.html#services" class="nav-link active">Services</a></li>
                     <li>
                         <a href="https://instagram.com/walaahairstudio" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -823,49 +921,152 @@
         </div>
     </div>
 
-    <!-- Service Hero Section -->
-    <section class="service-hero">
-        <div class="hero-content-wrapper">
-            <a href="/#services" class="back-link">
-                <svg class="back-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M5 12l7 7m-7-7l7-7"/>
-                </svg>
-                Back to Services
-            </a>
-            <h1 class="service-title">Keratin Smoothing Treatment</h1>
-            <p class="service-price">$320+</p>
-        </div>
+    <!-- Services Header -->
+    <section class="services-header">
+        <h1 class="services-title">Explore Our Services</h1>
+        <p class="services-subtitle">Click on any service to learn more</p>
     </section>
 
-    <!-- Service Content Section -->
-    <section class="service-content">
-        <div class="content-container">
-            <div class="service-description">
-                <p class="description-text">
-                    Experience the transformative power of keratin smoothing at Walaa Hair Studio. This revolutionary 
-                    treatment infuses your hair with protein, eliminating frizz and reducing styling time by up to 70%. 
-                    Walaa customizes each treatment to your hair's specific needs, whether you desire sleek, straight 
-                    strands or simply want to enhance your natural texture with smooth, manageable results. Using only 
-                    premium, formaldehyde-free formulas, this treatment leaves your hair incredibly soft, shiny, and 
-                    protected from humidity for up to four months. Wake up to effortlessly beautiful hair every day, 
-                    and enjoy the freedom of simplified styling routines.
-                </p>
+    <!-- Filter Section -->
+    <div class="filter-wrapper">
+        <section class="filter-section" id="filterSection">
+            <div class="filter-container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Services</button>
+                    <button class="filter-btn" data-filter="balayage">Balayage</button>
+                    <button class="filter-btn" data-filter="color-correction">Color Correction</button>
+                    <button class="filter-btn" data-filter="keratin">Keratin Treatment</button>
+                    <button class="filter-btn" data-filter="updo">Hair Updo</button>
+                    <button class="filter-btn" data-filter="foil">Full Foil</button>
+                    <button class="filter-btn" data-filter="highlights">Highlights</button>
+                    <button class="filter-btn" data-filter="bleach">Bleach Retouch</button>
+                    <button class="filter-btn" data-filter="color">All Over Color</button>
+                    <button class="filter-btn" data-filter="gloss">Gloss</button>
+                    <button class="filter-btn" data-filter="haircut">Haircut & Style</button>
+                </div>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <div class="service-image-container">
-            <div class="service-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1520720072528-8d2c0ac05300?w=1200&h=800&fit=crop" alt="Keratin treatment result" class="service-image">
+    <!-- Services Grid -->
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-grid" id="servicesGrid">
+                <!-- Balayage -->
+                <a href="/balayage.html" class="service-item" data-category="balayage">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&h=800&fit=crop" alt="Balayage" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Balayage</h3>
+                            <p class="service-price">$300+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Color Correction -->
+                <a href="/color.html" class="service-item" data-category="color-correction">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=800&fit=crop" alt="Color Correction" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Color Correction</h3>
+                            <p class="service-price">$400+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Keratin Smoothing Treatment -->
+                <a href="/keratin.html" class="service-item" data-category="keratin">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=800&fit=crop" alt="Keratin Smoothing Treatment" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Keratin Smoothing Treatment</h3>
+                            <p class="service-price">$320+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Hair Updo -->
+                <a href="/updo.html" class="service-item" data-category="updo">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560869713-4d0a717d578a?w=600&h=800&fit=crop" alt="Hair Updo" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Hair Updo</h3>
+                            <p class="service-price">$200+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Custom Full Foil -->
+                <a href="/fullfoil.html" class="service-item" data-category="foil">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&h=800&fit=crop" alt="Custom Full Foil" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Custom Full Foil</h3>
+                            <p class="service-price">$320–$380+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Partial Highlight / Lowlights -->
+                <a href="/highlight.html" class="service-item" data-category="highlights">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1492552181161-62217fc3076d?w=600&h=800&fit=crop" alt="Partial Highlight / Lowlights" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Partial Highlight / Lowlights</h3>
+                            <p class="service-price">$280+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Bleach Retouch with Blowout -->
+                <a href="/bleach.html" class="service-item" data-category="bleach">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=800&fit=crop" alt="Bleach Retouch with Blowout" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Bleach Retouch with Blowout</h3>
+                            <p class="service-price">$250+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- All Over Color + Haircut + Blowout -->
+                <a href="/allovercolor.html" class="service-item" data-category="color">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&h=800&fit=crop" alt="All Over Color + Haircut + Blowout" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">All Over Color + Haircut + Blowout</h3>
+                            <p class="service-price">$200+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Gloss + Blowout -->
+                <a href="/glossblow.html" class="service-item" data-category="gloss">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1534445538923-ab38438550d2?w=600&h=800&fit=crop" alt="Gloss + Blowout" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Gloss + Blowout</h3>
+                            <p class="service-price">$100+</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Haircut + Style -->
+                <a href="/haircutstyle.html" class="service-item" data-category="haircut">
+                    <div class="service-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560264280-88b68371db39?w=600&h=800&fit=crop" alt="Haircut + Style" class="service-image">
+                        <div class="service-overlay">
+                            <h3 class="service-name">Haircut + Style</h3>
+                            <p class="service-price">$80+</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="service-cta">
-        <div class="content-container">
-            <h2 class="cta-title">Ready for Effortlessly Smooth Hair?</h2>
-            <p class="cta-text">Book your keratin smoothing treatment and transform your daily hair routine.</p>
-            <a href="#book" class="cta-button">Book Your Appointment</a>
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults">
+                <p class="no-results-text">No services found in this category.</p>
+            </div>
         </div>
     </section>
 
@@ -890,9 +1091,10 @@
             
             <div class="footer-center">
                 <div class="footer-links">
-                    <a href="/">Home</a>
-                    <a href="/#services">Services</a>
-                    <a href="#book">Book Now</a>
+                    <a href="index.html">Home</a>
+                    <a href="service.html">Services</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="form.html">Book Now</a>
                 </div>
                 <div class="footer-address">
                     11106 Huebner Rd #310, San Antonio, TX 78230
@@ -968,6 +1170,73 @@
         
         window.addEventListener('resize', () => {
             handleScroll();
+        });
+
+        // Service filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const serviceItems = document.querySelectorAll('.service-item');
+        const servicesGrid = document.getElementById('servicesGrid');
+        const noResults = document.getElementById('noResults');
+
+        // Add stagger animation delays
+        function addAnimationDelays() {
+            const visibleItems = document.querySelectorAll('.service-item:not(.hidden)');
+            visibleItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        // Filter services
+        function filterServices(category) {
+            let hasVisibleItems = false;
+
+            serviceItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (category === 'all' || itemCategory === category) {
+                    item.classList.remove('hidden');
+                    hasVisibleItems = true;
+                    // Reset animation
+                    item.style.animation = 'none';
+                    item.offsetHeight; // Trigger reflow
+                    item.style.animation = null;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Show/hide no results message
+            if (hasVisibleItems) {
+                noResults.classList.remove('show');
+                addAnimationDelays();
+            } else {
+                noResults.classList.add('show');
+            }
+        }
+
+        // Handle filter button clicks
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter items
+                const filterValue = button.getAttribute('data-filter');
+                filterServices(filterValue);
+            });
+        });
+
+        // Initialize with animation delays
+        addAnimationDelays();
+
+        // Smooth scroll animation on page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
         });
     </script>
 </body>

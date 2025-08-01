@@ -11,10 +11,7 @@
     
     <!-- Load Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?
-            family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&
-            family=Tenor+Sans:ital,wght@0,400;1,400&
-            display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Tenor+Sans:ital,wght@0,400;1,400&display=swap"
         rel="stylesheet">
     
     <style>
@@ -95,6 +92,7 @@
             align-items: center;
             text-decoration: none;
             transition: all 0.3s ease;
+            z-index: 1001;
         }
 
         .logo-icon {
@@ -156,6 +154,18 @@
 
         .header.scrolled .nav-link:hover {
             color: var(--primary-rose);
+        }
+
+        .nav-link.active {
+            color: var(--primary-gold);
+        }
+
+        .header.scrolled .nav-link.active {
+            color: var(--primary-rose);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
         }
 
         .instagram-link {
@@ -316,7 +326,6 @@
         .mobile-menu-overlay.active .mobile-menu-list li:nth-child(2) { transition-delay: 0.2s; }
         .mobile-menu-overlay.active .mobile-menu-list li:nth-child(3) { transition-delay: 0.3s; }
         .mobile-menu-overlay.active .mobile-menu-list li:nth-child(4) { transition-delay: 0.4s; }
-        .mobile-menu-overlay.active .mobile-menu-list li:nth-child(5) { transition-delay: 0.5s; }
 
         .mobile-menu-link {
             color: var(--white);
@@ -480,7 +489,7 @@
 
         .progress-line {
             position: absolute;
-            top: 50px;
+            top: 20px;
             left: calc(50% + 20px);
             right: calc(-50% + 20px);
             height: 2px;
@@ -524,7 +533,7 @@
 
         .form-step {
             position: absolute;
-            width: 100%;
+            width: calc(100% - 80px);
             opacity: 0;
             transform: translateX(100px);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -533,6 +542,7 @@
 
         .form-step.active {
             position: relative;
+            width: 100%;
             opacity: 1;
             transform: translateX(0);
             pointer-events: all;
@@ -921,7 +931,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 10;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
@@ -1150,6 +1160,10 @@
                 padding: 30px 20px;
             }
 
+            .form-step.active {
+                width: 100%;
+            }
+
             .calendar-days {
                 gap: 4px;
             }
@@ -1224,7 +1238,7 @@
     <header class="header at-top" id="header">
         <div class="header-container">
             <!-- Logo -->
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="Walaa Hair Studio" class="logo-icon">
             </a>
 
@@ -1233,7 +1247,6 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="service.html" class="nav-link">Services</a></li>
-                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                     <li>
                         <a href="https://instagram.com/walaamahal" target="_blank" class="instagram-link">
                             <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1263,7 +1276,6 @@
             <ul class="mobile-menu-list">
                 <li><a href="index.html" class="mobile-menu-link">Home</a></li>
                 <li><a href="service.html" class="mobile-menu-link">Services</a></li>
-                <li><a href="portfolio.html" class="mobile-menu-link">Portfolio</a></li>
                 <li>
                     <a href="https://instagram.com/walaamahal" target="_blank" class="mobile-menu-link">
                         Instagram
@@ -1569,7 +1581,6 @@
                 <div class="footer-links">
                     <a href="index.html">Home</a>
                     <a href="service.html">Services</a>
-                    <a href="portfolio.html">Portfolio</a>
                     <a href="form.html">Book Now</a>
                 </div>
                 <div class="footer-address">
@@ -2038,24 +2049,51 @@
         }
 
         // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        const body = document.body;
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const body = document.body;
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            mobileMenuOverlay.classList.toggle('active');
-            body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-        });
+            if (mobileMenuBtn && mobileMenuOverlay) {
+                // Toggle mobile menu
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const isActive = mobileMenuBtn.classList.contains('active');
+                    
+                    if (isActive) {
+                        // Close menu
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        body.style.overflow = '';
+                    } else {
+                        // Open menu
+                        mobileMenuBtn.classList.add('active');
+                        mobileMenuOverlay.classList.add('active');
+                        body.style.overflow = 'hidden';
+                    }
+                });
 
-        // Close mobile menu when clicking on a link
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-book-btn');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                mobileMenuOverlay.classList.remove('active');
-                body.style.overflow = '';
-            });
+                // Close menu when clicking overlay
+                mobileMenuOverlay.addEventListener('click', function(e) {
+                    if (e.target === mobileMenuOverlay) {
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        body.style.overflow = '';
+                    }
+                });
+
+                // Close menu when clicking links
+                const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-book-btn');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenuOverlay.classList.remove('active');
+                        body.style.overflow = '';
+                    });
+                });
+            }
         });
 
         // Combined scroll handler
